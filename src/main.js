@@ -50,11 +50,16 @@ Vue.prototype.deleteTypeWithData = function(type,dat,typelist){
   if(this.loc.logList && this.loc.logList != '[]'){
     var allData = JSON.parse(this.loc.logList)
     for(let i = 0; i < allData.length; i++){
-      if(allData[i][type] != dat){
-        deledList.push(allData[i])
+      if(allData[i][type] == dat && allData[i]['ioe'] == tie){
         idList.push(allData[i]['id'])
+      }else{
+        deledList.push(allData[i])
       }
     }
+    allData = deledList
+    this.types.mb = '总计'
+    this.loc.logList = JSON.stringify(allData)
+    this.loc.updateTime = upd
     axios.post(
       'deleteType',
       {
@@ -64,10 +69,6 @@ Vue.prototype.deleteTypeWithData = function(type,dat,typelist){
         'idList': idList
       }
     )
-    allData = deledList
-    this.types.mb = '总计'
-    this.loc.logList = JSON.stringify(allData)
-    this.loc.updateTime = upd
   }
 }
 Vue.prototype.$addTypeToDB = function(name, data, upd){
