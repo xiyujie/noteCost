@@ -142,10 +142,10 @@ export default {
         }
         if(this.types.ioe == '支出'){
           this.loc.items = JSON.stringify(tmpItems)
-          tps = 'incomes'
+          tps = 'types'
         }else if(this.types.ioe == '收入'){
           this.loc.incomes = JSON.stringify(tmpItems)
-          tps = 'types'
+          tps = 'incomes'
         }
         this.deleteTypeWithData('type', typeName, tps)
         this.cg = this.createId()
