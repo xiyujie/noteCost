@@ -57,7 +57,7 @@ Vue.prototype.deleteTypeWithData = function(type,dat,typelist){
       }
     }
     allData = deledList
-    this.types.mb = '总计'
+    this.types.type = '总计'
     this.loc.logList = JSON.stringify(allData)
     this.loc.updateTime = upd
     axios.post(
